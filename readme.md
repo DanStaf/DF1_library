@@ -87,9 +87,9 @@ poetry add djangorestframework djangorestframework-simplejwt django-filter
 - admin
 - permissions
 - serializers
+- csu `python manage.py csu`
 - urls
 - views
-- csu `python manage.py csu`
 
 3. setup Habit model
 - models
