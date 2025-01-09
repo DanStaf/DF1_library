@@ -31,7 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'libr',
-    'users'
+    'users',
+    'rest_framework',
+    'django_filters',
+    'rest_framework_simplejwt',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +136,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'  # AllowAny
+        'rest_framework.permissions.IsAuthenticated'  # IsAuthenticated AllowAny
     ]
 }
 

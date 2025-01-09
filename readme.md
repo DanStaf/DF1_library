@@ -1,18 +1,8 @@
 # DF1 / API для управления библиотекой
 
+### Описание API:
 
-### Описание задачи:
-
-Необходимо разработать REST API для управления библиотекой. API должно предоставлять возможности для управления книгами, авторами и пользователями, а также для отслеживания выдачи книг пользователям. Для реализации API использовать Django Rest Framework (DRF).
-
-
-### Задача:
-
-1. Реализовать API для управления библиотекой.
-2. Обеспечить аутентификацию и авторизацию пользователей с использованием JWT токенов.
-3. Обеспечить возможности для управления книгами и авторами.
-4. Реализовать функционал для отслеживания выдачи книг.
-
+API для управления библиотекой. API предоставляет возможности для управления книгами, авторами и пользователями, а также для отслеживания выдачи книг пользователям. Для реализации API используется Django Rest Framework (DRF).
 
 ### Функционал API:
 
@@ -26,33 +16,50 @@
 3. **Управление пользователями**: 
    - Регистрация и авторизация пользователей.
    - Получение информации о пользователях.
+   - Реализована авторизация с использованием JSON Web Token для защиты API и управления сеансами пользователей 
+   - В проекте произведено разделение прав доступа, введены роли пользователей (менеджер, читатель)
 4. **Выдача книг**: 
    - Запись информации о выдаче книги пользователю.
    - Отслеживание статуса возврата книги.
-
     
-### Технические требования:
+### Инструкция по запуску:
+
+1) install and start Docker Desktop
+2) Sign out in Docker Desktop
+3) correct chapter 'Docker Engine' in Settings
+4) build image with command for Win: `docker-compose build`
+5) start containers with command for Win: `docker-compose up` or `docker-compose up -d --build`
+
+### Структура проекта:
 
 1. **Фреймворк**: 
-   - Использовать фреймворк Django и Django Rest Framework (DRF) для реализации проекта.
+   - Для реализации проекта используется фреймворк Django и Django Rest Framework (DRF).
 2. **База данных**: 
-   - Использовать PostgreSQL для хранения данных.
+   - PostgreSQL используется для хранения данных.
 3. **Контейнеризация**: 
-   - Использовать Docker и Docker Compose для контейнеризации приложения.
-4. **Документация**: 
-   - В корне проекта должен быть файл README.md с описанием структуры проекта и инструкциями по установке и запуску.\\
-   - Реализовать автогенерируемую документацию API по стандарту OpenAPI
-5. **Качество кода**: 
-   - Соблюдать стандарты PEP8.
-   - Весь код должен храниться в удаленном Git репозитории.
+   - Для контейнеризации приложения используется Docker и Docker Compose.
+4. **Доступные urls**:
+   
+Административная панель:
+   - /admin/
+   
+Приложение "libr" (библиотека):
+   - /authors/
+   - /books/
+   - /readings/
+   
+Приложение "users" (пользователи):
+   - /users/
+   - /users/login/
+   - /users/token/refresh/
+   - /users/email_confirm/
+
+Автогенерируемая документация API по стандарту OpenAPI:
+   - /swagger/
+   - /redoc/
+   
 
 
-
-
-
-Реализована авторизация с использованием JSON Web Token для защиты API и управления сеансами пользователей
-
-В проекте произведено разделение прав доступа /введены роли пользователей
 
 
 
@@ -91,41 +98,31 @@ poetry add djangorestframework djangorestframework-simplejwt django-filter
 - urls
 - views
 
-3. setup Habit model
+3. setup models / book, author, reading
 - models
 - admin
 
-4. setup Habit endpoints
-- paginators
+4. setup simple endpoints
 - serializers
 - urls
 - views (CRUD)
 
-5. setup public habits
+5. setup custom endpoints (filter books, book status)
 - urls
 - views
+- (serializers)
 
-6. Валидаторы
-- validators
-- serializers
+---
 
-7. Телеграм
-- poetry add celery django-celery-beat redis eventlet
-- config: settings, celery.py, tasks, services / migrate
-- https://t.me/BotFather
-- https://core.telegram.org/bots/api
-- poetry add telebot
-- add tg_id to user model
-- config: env, settings, tasks, services
 
-8. Другое
-`poetry add django-cors-headers drf-yasg coverage flake8`
-- CORS 
+9. Другое
+
+- readme
 - Документация
-- Тесты
-- Flake8
+`poetry add drf-yasg`
+
 - fixtures
-`python -Xutf8 manage.py dumpdata spa > fixtures/spa_data.json --indent=4`
+`python -Xutf8 manage.py dumpdata libr > fixtures/libr_data.json --indent=4`
 `python -Xutf8 manage.py dumpdata auth > fixtures/auth_data.json --indent=4`
 `python -Xutf8 manage.py dumpdata users > fixtures/users_data.json --indent=4`
 
