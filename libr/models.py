@@ -24,7 +24,7 @@ class Book(models.Model):
 
     title = models.CharField(max_length=150, verbose_name='Название')
 
-    authors = models.ManyToManyField(Author, verbose_name='Авторы', null=True, blank=True)
+    authors = models.ManyToManyField(Author, verbose_name='Авторы', blank=True)
     year = models.PositiveIntegerField(verbose_name='Год издания', null=True, blank=True)
     genre = models.CharField(max_length=150, verbose_name='Жанр', null=True, blank=True)
 
