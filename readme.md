@@ -91,13 +91,11 @@ poetry add djangorestframework djangorestframework-simplejwt django-filter
 - urls
 - views
 
-3. setup models / book, author, reading /
-book_taking / book taking list = book history список заимствований, список читателей, читатель / reading list
+3. setup models / book, author, reading
 - models
 - admin
 
-4. setup Habit endpoints
-- paginators
+4. setup endpoints
 - serializers
 - urls
 - views (CRUD)
