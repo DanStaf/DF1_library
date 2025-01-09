@@ -22,7 +22,13 @@ API для управления библиотекой. API предоставл
    - Запись информации о выдаче книги пользователю.
    - Отслеживание статуса возврата книги.
     
-### ИНСТРУКЦИЯ ПО ЗАПУСКУ:
+### Инструкция по запуску:
+
+1) install and start Docker Desktop
+2) Sign out in Docker Desktop
+3) correct chapter 'Docker Engine' in Settings
+4) build image with command for Win: `docker-compose build`
+5) start containers with command for Win: `docker-compose up` or `docker-compose up -d --build`
 
 ### Структура проекта:
 
