@@ -69,11 +69,12 @@
 2. setup Poetry, DB and Django
 ```
 /settings/Python interpreter/Add interpreter/Poetry environment 
+create DB "library"
 poetry add django==4.2 python-dotenv psycopg2
 django-admin startproject config .
-python manage.py startapp spa
+python manage.py startapp libr
 python manage.py startapp users
-create DB "spa"
+
 setup settings.py
 ```
 3. setup User
