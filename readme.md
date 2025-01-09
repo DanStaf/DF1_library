@@ -95,29 +95,19 @@ poetry add djangorestframework djangorestframework-simplejwt django-filter
 - models
 - admin
 
-4. setup endpoints
+4. setup simple endpoints
 - serializers
 - urls
 - views (CRUD)
 
-5. setup public habits
+5. setup custom endpoints (filter books, book status)
 - urls
 - views
+- (serializers)
 
-6. Валидаторы
-- validators
-- serializers
+---
 
-7. Телеграм
-- poetry add celery django-celery-beat redis eventlet
-- config: settings, celery.py, tasks, services / migrate
-- https://t.me/BotFather
-- https://core.telegram.org/bots/api
-- poetry add telebot
-- add tg_id to user model
-- config: env, settings, tasks, services
-
-8. Другое
+9. Другое
 `poetry add django-cors-headers drf-yasg coverage flake8`
 - CORS 
 - Документация
