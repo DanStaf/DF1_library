@@ -22,6 +22,8 @@ API для управления библиотекой. API предоставл
    - Запись информации о выдаче книги пользователю.
    - Отслеживание статуса возврата книги.
     
+---
+
 ### Инструкция по запуску:
 
 1) install and start Docker Desktop
@@ -39,95 +41,19 @@ API для управления библиотекой. API предоставл
 3. **Контейнеризация**: 
    - Для контейнеризации приложения используется Docker и Docker Compose.
 4. **Доступные urls**:
-   
-Административная панель:
-   - /admin/
-   
-Приложение "libr" (библиотека):
-   - /authors/
-   - /books/
-   - /readings/
-   
-Приложение "users" (пользователи):
-   - /users/
-   - /users/login/
-   - /users/token/refresh/
-   - /users/email_confirm/
-
-Автогенерируемая документация API по стандарту OpenAPI:
-   - /swagger/
-   - /redoc/
-   
-
-
-
-
-
+   - Административная панель:
+     - `/admin/`
+   - Приложение "libr" (библиотека):
+     - `/authors/`
+     - `/books/`
+     - `/readings/`
+   - Приложение "users" (пользователи):
+     - `/users/`
+     - `/users/login/`
+     - `/users/token/refresh/`
+     - `/users/email_confirm/`
+   - Автогенерируемая документация API по стандарту OpenAPI:
+     - `/swagger/`
+     - `/redoc/`
     
 ---
-
----
-
----
-
-## Developing Steps
-
-1. add .gitignore, .env, readme
-2. setup Poetry, DB and Django
-```
-/settings/Python interpreter/Add interpreter/Poetry environment 
-create DB "library"
-poetry add django==4.2 python-dotenv psycopg2
-django-admin startproject config .
-python manage.py startapp libr
-python manage.py startapp users
-
-setup settings.py
-```
-3. setup User
-```
-poetry add djangorestframework djangorestframework-simplejwt django-filter
-```
-- config.settings.py
-- config.urls
-- models
-- admin
-- permissions
-- serializers
-- csu `python manage.py csu`
-- urls
-- views
-
-3. setup models / book, author, reading
-- models
-- admin
-
-4. setup simple endpoints
-- serializers
-- urls
-- views (CRUD)
-
-5. setup custom endpoints (filter books, book status)
-- urls
-- views
-- (serializers)
-
----
-
-
-9. Другое
-
-- readme
-- Документация
-`poetry add drf-yasg`
-
-- fixtures
-`python -Xutf8 manage.py dumpdata libr > fixtures/libr_data.json --indent=4`
-`python -Xutf8 manage.py dumpdata auth > fixtures/auth_data.json --indent=4`
-`python -Xutf8 manage.py dumpdata users > fixtures/users_data.json --indent=4`
-
-9. Docker
-- Dockerfile and docker-compose.yaml
-- .env and .env.sample and settings
-- `pip freeze > requirements.txt`
-- readme.md
