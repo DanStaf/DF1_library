@@ -46,7 +46,4 @@ class ReadingViewSet(viewsets.ModelViewSet):
 
     queryset = Reading.objects.all()
     serializer_class = ReadingSerializer
-
-    def get_permissions(self):
-        self.permission_classes = [IsManagerClass]
-        return super().get_permissions()
+    permission_classes = [IsManagerClass]

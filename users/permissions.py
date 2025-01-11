@@ -5,5 +5,5 @@ class IsManagerClass(BasePermission):
 
     message = 'Only manager have access to this action'
 
-    def has_object_permission(self, request, view, obj):
+    def has_permission(self, request, view):
         return request.user.is_manager
